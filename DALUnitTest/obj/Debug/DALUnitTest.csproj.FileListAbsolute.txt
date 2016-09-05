@@ -1,0 +1,4 @@
+D:\Project Tools\DAL\DALUnitTest\bin\Debug\DALUnitTest.dll
+D:\Project Tools\DAL\DALUnitTest\bin\Debug\DALUnitTest.pdb
+D:\Project Tools\DAL\DALUnitTest\obj\Debug\DALUnitTest.dll
+D:\Project Tools\DAL\DALUnitTest\obj\Debug\DALUnitTest.pdb

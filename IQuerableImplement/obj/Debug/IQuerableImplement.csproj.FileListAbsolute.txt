@@ -1,0 +1,6 @@
+D:\Belajar\IQuerableImplement\IQuerableImplement\obj\Debug\IQuerableImplement.csprojResolveAssemblyReference.cache
+D:\Belajar\IQuerableImplement\IQuerableImplement\bin\Debug\IQuerableImplement.dll
+D:\Belajar\IQuerableImplement\IQuerableImplement\bin\Debug\IQuerableImplement.pdb
+D:\Belajar\IQuerableImplement\IQuerableImplement\obj\Debug\IQuerableImplement.dll
+D:\Belajar\IQuerableImplement\IQuerableImplement\obj\Debug\IQuerableImplement.pdb
+D:\Belajar\IQuerableImplement\IQuerableImplement\bin\Debug\MySql.Data.dll

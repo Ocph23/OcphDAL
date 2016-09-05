@@ -1,0 +1,23 @@
+D:\Projects\ManifestCargoApp\IQuerableImplement\bin\Release\DAL.dll
+D:\Projects\ManifestCargoApp\IQuerableImplement\bin\Release\DAL.pdb
+D:\Projects\ManifestCargoApp\IQuerableImplement\bin\Release\Microsoft.AspNet.Identity.Core.dll
+D:\Projects\ManifestCargoApp\IQuerableImplement\bin\Release\System.Data.SQLite.dll
+D:\Projects\ManifestCargoApp\IQuerableImplement\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\ManifestCargoApp\IQuerableImplement\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Projects\ManifestCargoApp\IQuerableImplement\obj\Release\DAL.dll
+D:\Projects\ManifestCargoApp\IQuerableImplement\obj\Release\DAL.pdb
+D:\Project Tools\DAL\IQuerableImplement\bin\Release\DAL.dll
+D:\Project Tools\DAL\IQuerableImplement\bin\Release\DAL.pdb
+D:\Project Tools\DAL\IQuerableImplement\bin\Release\System.Data.SQLite.dll
+D:\Project Tools\DAL\IQuerableImplement\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Project Tools\DAL\IQuerableImplement\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Project Tools\DAL\IQuerableImplement\obj\Release\DAL.dll
+D:\Project Tools\DAL\IQuerableImplement\obj\Release\DAL.pdb
+D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\DAL.dll
+D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\DAL.pdb
+D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\System.Data.SQLite.dll
+D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\Microsoft.AspNet.Identity.Core.xml
+D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.dll
+D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.pdb
+D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\MySql.Data.dll
