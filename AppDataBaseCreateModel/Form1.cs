@@ -78,7 +78,8 @@ using System.Threading.Tasks;";
                 
                     foreach (var itemtable in list)
                     {
-                        sb.Append(string.Format("namespace {0} \n", ns));
+
+                        sb.Append(string.Format("\n \n namespace {0} \n", ns));
                         sb.Append("{ \n");
 
                         if (OcphDal.Checked)
@@ -89,8 +90,14 @@ using System.Threading.Tasks;";
 
 
 
-                        sb.Append(string.Format("     public class {0} \n", itemtable.TableName));
-                        sb.Append("     {\n");
+                        sb.Append(string.Format("     public class {0}", itemtable.TableName));
+
+                        if(Inpc.Checked)
+                        {
+                            sb.Append(":BaseNotifyProperty");
+                        }
+
+                        sb.Append("  \n   {\n");
 
                         cmd.CommandText = string.Format("Select * From {0}.{1} limit 1", itemtable.Database, itemtable.TableName);
                         dr = cmd.ExecuteReader();

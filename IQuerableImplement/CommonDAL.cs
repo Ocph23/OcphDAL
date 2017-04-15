@@ -63,7 +63,7 @@ namespace DAL
 
         internal static string ErrorHandle(MySql.Data.MySqlClient.MySqlException ex)
         {
-            string result = string.Empty;
+            string result = ex.Message;
             if(ex.Number == 1062)
             {
                result="Data Sudah Ada";

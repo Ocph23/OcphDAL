@@ -2,3 +2,14 @@ D:\Project Tools\DAL\DALUnitTest\bin\Debug\DALUnitTest.dll
 D:\Project Tools\DAL\DALUnitTest\bin\Debug\DALUnitTest.pdb
 D:\Project Tools\DAL\DALUnitTest\obj\Debug\DALUnitTest.dll
 D:\Project Tools\DAL\DALUnitTest\obj\Debug\DALUnitTest.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\DALUnitTest.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\DALUnitTest.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\DAL.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\MySql.Data.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\System.Data.SQLite.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\DAL.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\obj\Debug\DALUnitTest.csprojResolveAssemblyReference.cache
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\obj\Debug\DALUnitTest.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\obj\Debug\DALUnitTest.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\DALUnitTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

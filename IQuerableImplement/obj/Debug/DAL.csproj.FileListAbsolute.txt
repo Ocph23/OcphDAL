@@ -94,3 +94,10 @@ D:\Project Tools\OcphDAL\IQuerableImplement\bin\Debug\MySql.Data.dll
 D:\Project Tools\OcphDAL\IQuerableImplement\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\Project Tools\OcphDAL\IQuerableImplement\obj\Debug\DAL.dll
 D:\Project Tools\OcphDAL\IQuerableImplement\obj\Debug\DAL.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.dll.config
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\MySql.Data.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.csprojResolveAssemblyReference.cache

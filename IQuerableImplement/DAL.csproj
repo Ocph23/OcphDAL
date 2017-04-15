@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttributeClass.cs" />
+    <Compile Include="BaseNotifyProperty.cs" />
     <Compile Include="CommonDAL.cs" />
     <Compile Include="Common\ImageHelpers.cs" />
     <Content Include="Context.txt" />

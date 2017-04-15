@@ -21,3 +21,12 @@ D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.csprojResolveAssembl
 D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.dll
 D:\Project Tools\OcphDAL\IQuerableImplement\obj\Release\DAL.pdb
 D:\Project Tools\OcphDAL\IQuerableImplement\bin\Release\MySql.Data.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\DAL.dll.config
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\DAL.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\DAL.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\MySql.Data.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\System.Data.SQLite.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Release\DAL.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Release\DAL.pdb

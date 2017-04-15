@@ -152,6 +152,7 @@ namespace DAL.DContext
             }
             catch (Exception ex)
             {
+                var result = ex;
                 throw new Exception(ex.Message);
 
             }
