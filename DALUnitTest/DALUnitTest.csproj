@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -54,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppDataBaseCreateModel\AppDataBaseCreateModel.csproj">
+      <Project>{00ae6750-3b97-48f5-96a7-3c50c5f327e4}</Project>
+      <Name>AppDataBaseCreateModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IQuerableImplement\DAL.csproj">
       <Project>{b80cefb7-fb32-4c32-9fbf-1f0ad7dd2863}</Project>
       <Name>DAL</Name>

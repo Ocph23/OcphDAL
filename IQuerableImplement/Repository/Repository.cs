@@ -82,5 +82,10 @@ namespace DAL.Repository
         {
             return (T)DataTables.GetLastItem();
         }
+
+        public IQueryable<T> Inclued(Expression<Func<T, dynamic>> expression)
+        {
+            return DataTables.Includ(expression);
+        }
     }
 }

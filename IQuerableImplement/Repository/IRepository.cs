@@ -9,6 +9,7 @@ using System.Data;
 
 
 
+
 namespace DAL.Repository
 {
     public interface IRepository<T>  where T:class 
@@ -20,7 +21,7 @@ namespace DAL.Repository
         bool Insert(T t);
 
         int InsertAndGetLastID(T t);
-
+        IQueryable<T> Inclued(Expression<Func<T, dynamic>> expression);
         IQueryable<T> Select();
 
         IQueryable<T> Select(Expression<Func<T, dynamic>> expression);

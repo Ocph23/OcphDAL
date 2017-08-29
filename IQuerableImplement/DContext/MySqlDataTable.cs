@@ -221,10 +221,10 @@ namespace DAL.DContext
 
 
 
-        public IQueryable<T> Includ(IQueryable<T> query, Expression<Func<T, dynamic>> expression, MySqlContextConnection dataconetxt)
+        public IQueryable<T> Includ( Expression<Func<T, dynamic>> expression)
         {
             var job = new CollectPropertyFromExpression().Translate(expression);
-
+            var query = this.SelectAll();
             foreach (T Item in query)
             {
                 foreach (PropertyInfo propertyJOb in job)
@@ -233,43 +233,66 @@ namespace DAL.DContext
                     if (propertyJOb.PropertyType.GenericTypeArguments.Count() > 0)
                     {
                         entityChild = new EntityInfo(propertyJOb.PropertyType.GenericTypeArguments[0]);
-                        string vsql = new InsertQuery(Entity).GetChildInsertQuery(propertyJOb, Item, entityChild);
-                        if (vsql != string.Empty)
+                        var propertyproduct = Entity.GetPropertyByPropertyName(propertyJOb.Name);
+                        IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(entityChild.GetEntityType()));
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append("(Select * From ").Append(Entity.TableName).Append(" Where ");
+
+                        sb.Append(new WhereTranslator().Translate(expression));
+
+                        sb.Append(")");
+                        IDbCommand cmd = datacontext.Connection.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = sb.ToString();
+                        IDataReader dr = null;
+                        try
+                        {
+                            dr = cmd.ExecuteReader() as MySqlDataReader;
+                            list = new MappingColumn(Entity).MappingWithoutInclud<T>(dr);
+                        }
+                        catch (Exception ex)
                         {
 
-                            IDataReader dr = null;
-                            try
-                            {
-                                IDbCommand cmd = dataconetxt.CreateCommand();
-                                cmd.CommandType = CommandType.Text;
-                                cmd.CommandText = vsql;
-                                dr = cmd.ExecuteReader();
-
-                                var propertyproduct = Entity.GetPropertyByPropertyName(propertyJOb.Name);
-                                IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(entityChild.GetEntityType()));
-                                var map = new MappingColumn(Entity);
-                                var resultMapping = (IList)map.MappingWithoutInclud(dr, entityChild.GetEntityType());
-
-                                foreach (var item in resultMapping)
-                                {
-                                    list.Add(item);
-                                }
-
-                                propertyproduct.SetValue(Item, list, null);
-                            }
-                            catch (Exception ex)
-                            {
-                                throw new System.Exception(ex.Message);
-                            }
-                            finally
-                            {
-                                dr.Close();
-                            }
+                            throw new Exception(ex.Message);
                         }
+                        finally
+                        {
+
+                            dr.Close();
+                        }
+                        propertyproduct.SetValue(Item, list, null);
                     }
                     else
                     {
-                        entityChild = new EntityInfo(propertyJOb.ReflectedType);
+                        entityChild = new EntityInfo(propertyJOb.PropertyType);
+                        var propertyproduct = Entity.GetPropertyByPropertyName(propertyJOb.Name);
+                        IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(entityChild.GetEntityType()));
+                        StringBuilder sb = new StringBuilder();
+                        sb.Append("Select * From ").Append(entityChild.TableName);
+                        IDataReader dr = null;
+                        try
+                        {
+                            IDbCommand cmd = datacontext.Connection.CreateCommand();
+                            cmd.CommandType = CommandType.Text;
+                            cmd.CommandText = sb.ToString();
+                            dr = cmd.ExecuteReader();
+                            list = new MappingColumn(Entity).MappingWithoutInclud<T>(dr);
+                        }
+                        catch (Exception ex)
+                        {
+                            var result = ex;
+                            throw new Exception(ex.Message);
+
+                        }
+                        finally
+                        {
+                            dr.Close();
+                        }
+                        propertyproduct.SetValue(Item, list, null);
+
+
+
+
                     }
 
 
@@ -278,7 +301,6 @@ namespace DAL.DContext
             }
             return query;
         }
-
 
 
         public IQueryable<T> ExecuteStoreProcedureQuery(string storeProcedure)
@@ -374,64 +396,7 @@ namespace DAL.DContext
         }
 
 
-        public IQueryable<T> Includ(IQueryable<T> query, Expression<Func<T, dynamic>> expression, IDbConnection dataconetxt)
-        {
-            var job = new CollectPropertyFromExpression().Translate(expression);
-
-            foreach (T Item in query)
-            {
-                foreach (PropertyInfo propertyJOb in job)
-                {
-                    EntityInfo entityChild = null;
-                    if (propertyJOb.PropertyType.GenericTypeArguments.Count() > 0)
-                    {
-                        entityChild = new EntityInfo(propertyJOb.PropertyType.GenericTypeArguments[0]);
-                        string vsql = new InsertQuery(Entity).GetChildInsertQuery(propertyJOb, Item, entityChild);
-                        if (vsql != string.Empty)
-                        {
-
-                            IDataReader dr = null;
-                            try
-                            {
-                                IDbCommand cmd = dataconetxt.CreateCommand();
-                                cmd.CommandType = CommandType.Text;
-                                cmd.CommandText = vsql;
-                                dr = cmd.ExecuteReader();
-
-                                var propertyproduct = Entity.GetPropertyByPropertyName(propertyJOb.Name);
-                                IList list = (IList)Activator.CreateInstance(typeof(List<>).MakeGenericType(entityChild.GetEntityType()));
-                                var map = new MappingColumn(Entity);
-                                var resultMapping = (IList)map.MappingWithoutInclud(dr, entityChild.GetEntityType());
-
-                                foreach (var item in resultMapping)
-                                {
-                                    list.Add(item);
-                                }
-
-                                propertyproduct.SetValue(Item, list, null);
-                            }
-                            catch (Exception ex)
-                            {
-                                throw new System.Exception(ex.Message);
-                            }
-                            finally
-                            {
-                                dr.Close();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        entityChild = new EntityInfo(propertyJOb.ReflectedType);
-                    }
-
-
-
-                }
-            }
-            return query;
-        }
-
+      
         public object ExecuteNonQuery(string query)
         {
             IDbCommand cmd = datacontext.Connection.CreateCommand();
@@ -475,5 +440,7 @@ namespace DAL.DContext
             }
             return dr;
         }
+
+       
     }
 }

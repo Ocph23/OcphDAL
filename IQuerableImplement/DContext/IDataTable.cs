@@ -1,4 +1,5 @@
 ﻿using DAL.QueryBuilder;
+using DAL.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -36,9 +37,11 @@ namespace DAL.DContext
         IQueryable<T> Select(Expression<Func<T, dynamic>> expression);
 
 
-        IQueryable<T> Includ(IQueryable<T> query, Expression<Func<T, dynamic>> expression, IDbConnection dataconetxt);
+        IQueryable<T> Includ(Expression<Func<T, dynamic>> expression);
 
         IQueryable<T> ExecuteStoreProcedureQuery(string storeProcedure);
+
+       
 
         object ExecuteStoreProcedureNonQuery(string storeProcedure);
 

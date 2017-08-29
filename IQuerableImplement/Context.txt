@@ -12,7 +12,7 @@ namespace DAL
 {
     public class ContextTest : IDbContext, IDisposable
     {
-        private string ConnectionString = "Server=localhost;database=unitedtractor;UID=root;password=;CharSet=utf8;Persist Security Info=True";
+        private string ConnectionString = "Server=localhost;database=;UID=root;password=;CharSet=utf8;Persist Security Info=True";
       
         private IDbConnection _Connection;
 

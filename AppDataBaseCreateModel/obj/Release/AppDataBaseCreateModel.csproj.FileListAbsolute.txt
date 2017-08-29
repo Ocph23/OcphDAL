@@ -25,17 +25,3 @@ D:\Project Tools\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateMod
 D:\Project Tools\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Setting.resources
 D:\Project Tools\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.GenerateResource.Cache
 D:\Project Tools\OcphDAL\AppDataBaseCreateModel\bin\Release\MySql.Data.dll
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.exe.config
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.exe
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.pdb
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.exe
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.pdb
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\DAL.dll
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\MySql.Data.dll
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\System.Data.SQLite.dll
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Release\DAL.pdb
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csprojResolveAssemblyReference.cache
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Form1.resources
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Properties.Resources.resources
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Setting.resources
-C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.GenerateResource.Cache

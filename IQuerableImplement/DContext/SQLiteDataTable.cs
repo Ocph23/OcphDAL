@@ -128,7 +128,7 @@ namespace DAL.DContext
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> Includ(IQueryable<T> query, System.Linq.Expressions.Expression<Func<T, dynamic>> expression, System.Data.IDbConnection dataconetxt)
+        public IQueryable<T> Includ( System.Linq.Expressions.Expression<Func<T, dynamic>> expression)
         {
             throw new NotImplementedException();
         }
@@ -173,5 +173,6 @@ namespace DAL.DContext
         {
             throw new NotImplementedException();
         }
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿using DAL.DContext;
+using DAL.ExpressionHandler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,9 +13,17 @@ namespace DAL.Extentions
     public static class Extentionss
     {
 
-        public static T Include<T>(this IQueryable<T> query, Expression<Func<T, dynamic>> expression, MySqlContextConnection dataconetxt )where T:class
+        public static List<T> Include<T>(this IQueryable<T> query, Expression<Func<T, dynamic>> expression) where T : class
         {
-            throw new NotImplementedException();
+            List<PropertyInfo> job = new CollectPropertyFromExpression().Translate(expression);
+            foreach (T Item in query)
+            {
+                foreach (PropertyInfo propertyJOb in job)
+                {
+                }
+            }
+
+            return null;
         }
 
 

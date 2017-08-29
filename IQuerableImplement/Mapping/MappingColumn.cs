@@ -77,12 +77,17 @@ namespace DAL.Mapping
 
                 if (columnMapping != null)
                 {
+                  //  var a = Nullable.GetUnderlyingType(property.PropertyType);
                     var field = ReaderSchema.Where(O=>O.ColumnName.ToString().ToUpper() == columnMapping.ToString().ToUpper()).FirstOrDefault();
                     if (field!=null )
                     {
                         var value = dr.GetValue(field.Ordinal);
                         if (value is DBNull)
+                        {
+                           
                             value = null;
+                        }
+                          
                        property.SetValue(obj,this.GetValue(property, value));
                     }
                 }
@@ -235,22 +240,31 @@ namespace DAL.Mapping
 
         private static object ConverValue(System.Reflection.PropertyInfo p, object obj)
         {
-            var propertyType = p.PropertyType;
-            switch (propertyType.Name)
-            { 
-                case  "Boolean":
-                    obj = Convert.ToBoolean(obj);
-                    break;
+            if (obj != null)
+            {
+                var propertyType = p.PropertyType;
 
-                case "Image":
-                    obj = GetImage(obj);
-                    break;
-                default:
-                    obj = Convert.ChangeType(obj, p.PropertyType);
-                    break;
+                switch (propertyType.Name)
+                {
+                    case "Boolean":
+                        obj = Convert.ToBoolean(obj);
+                        break;
+
+                    case "Image":
+                        obj = GetImage(obj);
+                        break;
+                    default:
+                        obj = GetDefaultValue(obj, p.PropertyType);
+                        break;
+                }
             }
-
             return obj;
+        }
+
+        private static object GetDefaultValue(object obj, Type propertyType)
+        {
+            var t = Nullable.GetUnderlyingType(propertyType) ?? propertyType;
+            return Convert.ChangeType(obj, t);
         }
 
         private static object GetImage(object obj)
