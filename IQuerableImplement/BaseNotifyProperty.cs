@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,20 +12,25 @@ namespace DAL
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChange(string propertyName)
+        public void OnPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            System.ComponentModel.PropertyChangedEventHandler handler = this.PropertyChanged;
-            if (handler != null)
-                try
-                {
-                    handler(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-                }
-                catch (Exception ex)
-                {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
 
-                    throw;
-                }
-              
+        protected bool SetProperty<T>(ref T backingStore, T value,
+           [CallerMemberName]string propertyName = "",
+           Action onChanged = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingStore, value))
+                return false;
+
+            backingStore = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
+            return true;
         }
     }
 }

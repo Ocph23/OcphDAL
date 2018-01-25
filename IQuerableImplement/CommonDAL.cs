@@ -105,6 +105,9 @@ namespace DAL
             if(ts.Name== "MySqlDbContext")
             {
                 c= new MySqlDataTable<T>(dataContext);
+            }else if(ts.Name== "SQLiteContextConnection")
+            {
+                c = new SQLiteDataTable<T>(dataContext);
             }
             return c;
         }

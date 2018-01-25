@@ -39,3 +39,7 @@ C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBas
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.GenerateResource.Cache
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.exe
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.pdb
+C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\DAL.dll.config
+C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.xml
+C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache

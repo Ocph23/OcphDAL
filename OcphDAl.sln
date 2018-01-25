@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALUnitTest", "DALUnitTest\DALUnitTest.csproj", "{5D87975D-6CD0-4A12-AFE2-5437BEA9245F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "IQuerableImplement\DAL.csproj", "{B80CEFB7-FB32-4C32-9FBF-1F0AD7DD2863}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDataBaseCreateModel", "AppDataBaseCreateModel\AppDataBaseCreateModel.csproj", "{00AE6750-3B97-48F5-96A7-3C50C5F327E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetLoginDemo", "AspNetLoginDemo\AspNetLoginDemo.csproj", "{46BFE2F5-809C-416D-8BCF-9CF5CADA5234}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{00AE6750-3B97-48F5-96A7-3C50C5F327E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00AE6750-3B97-48F5-96A7-3C50C5F327E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00AE6750-3B97-48F5-96A7-3C50C5F327E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46BFE2F5-809C-416D-8BCF-9CF5CADA5234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46BFE2F5-809C-416D-8BCF-9CF5CADA5234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46BFE2F5-809C-416D-8BCF-9CF5CADA5234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46BFE2F5-809C-416D-8BCF-9CF5CADA5234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C7B5AE6-BE73-42D2-BD60-9E61E841BF30}
 	EndGlobalSection
 EndGlobal

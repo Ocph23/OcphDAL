@@ -250,12 +250,17 @@ namespace DAL.SQLites.Mapping
             switch (propertyType.Name)
             {
                 case "Boolean":
-                    obj = Convert.ToBoolean(obj);
+                    obj1 = Convert.ToBoolean(obj);
                     break;
 
                 case "Image":
-                    obj = GetImage(obj);
+                    obj1 = GetImage(obj);
                     break;
+                case "Nullable`1":
+                    obj1 = ChangeType(obj,propertyType.GenericTypeArguments[0]);
+                    break;
+
+
                 default:
                    
                    obj1=Convert.ChangeType(obj, p.PropertyType);
@@ -268,6 +273,20 @@ namespace DAL.SQLites.Mapping
             return obj1;
         }
 
+        private static object ChangeType(object value, Type t)
+        {
+            if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+                if (value == null)
+                {
+                    return null;
+                }
+
+                t = Nullable.GetUnderlyingType(t);
+            }
+
+            return Convert.ChangeType(value, t);
+        }
 
         private static object GetImage(object obj)
         {

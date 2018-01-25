@@ -235,11 +235,14 @@ using System.Threading.Tasks;";
                                 sb.Append("\n          { \n               get{return ");
                                 sb.Append(string.Format("_{0};", item.ColumnName.ToLower()));
                                 sb.Append("} \n               set{ \n");
-                                sb.Append(string.Format("                      _{0}=value;", item.ColumnName.ToLower()));
-
-                                if (Inpc.Checked)
+                             
+                                if (!Inpc.Checked)
                                 {
-                                    sb.Append(string.Format(" \n                     OnPropertyChange({0}{1}{2});", '"', item.ColumnName, '"'));
+                                    sb.Append(string.Format("                      _{0}=value;", item.ColumnName.ToLower()));
+                                }
+                                else
+                                {
+                                    sb.Append(string.Format("SetProperty(ref _{0}, value);", item.ColumnName.ToLower()));
                                 }
 
                                 sb.Append("\n                     }\n          } \n\n");

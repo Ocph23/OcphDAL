@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-   
-
     [AttributeUsage(AttributeTargets.Property)]
     public class DbColumnAttribute : Attribute
     {

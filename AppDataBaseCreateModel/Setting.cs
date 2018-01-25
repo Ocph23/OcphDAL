@@ -38,6 +38,7 @@ namespace AppDataBaseCreateModel
                     config.UpdateKey("Password", this.PasswordTxt.Text);
                     config.UpdateKey("Port", this.porttxt.Text);
                     MessageBox.Show("Configuration Saved");
+                this.Close();
 
             }
             catch (Exception ex)

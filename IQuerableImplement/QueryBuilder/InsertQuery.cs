@@ -1,6 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -110,7 +111,7 @@ namespace DAL.QueryBuilder
             EntityInfo ent = new EntityInfo(obj.GetType());
             foreach (PropertyInfo p in ent.DbTableProperty)
             {
-                cmd.Parameters.Add( new MySqlParameter(string.Format("@{0}", ent.GetAttributDbColumn(p)), CommonDAL.GetParameterValue(p,p.GetValue(obj))));
+                cmd.Parameters.Add( new SQLiteParameter (string.Format("@{0}", ent.GetAttributDbColumn(p)), CommonDAL.GetParameterValue(p,p.GetValue(obj))));
             }
 
         }

@@ -98,6 +98,10 @@ C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.dll.config
 C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.dll
 C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\DAL.pdb
 C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\MySql.Data.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\System.Data.SQLite.dll
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\System.Data.SQLite.xml
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.dll
 C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.pdb
-C:\Users\ocph23\Source\Repos\OcphDAL\IQuerableImplement\obj\Debug\DAL.csprojResolveAssemblyReference.cache

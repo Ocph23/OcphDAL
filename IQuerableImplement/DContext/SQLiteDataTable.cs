@@ -120,7 +120,29 @@ namespace DAL.DContext
 
         public IQueryable<T> SelectAll()
         {
-            throw new NotImplementedException();
+            List<T> list = new List<T>();
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Select * From ").Append(Entity.TableName);
+            IDataReader dr = null;
+            try
+            {
+                IDbCommand cmd = datacontext.Connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sb.ToString();
+                dr = cmd.ExecuteReader();
+                list = new MappingColumnSQLite(Entity).MappingWithoutInclud<T>(dr);
+            }
+            catch (Exception ex)
+            {
+                var result = ex;
+                throw new Exception(ex.Message);
+
+            }
+            finally
+            {
+                dr.Close();
+            }
+            return list.AsQueryable<T>();
         }
 
         public IQueryable<T> Select(System.Linq.Expressions.Expression<Func<T, dynamic>> expression)
@@ -145,7 +167,25 @@ namespace DAL.DContext
 
         public int GetLastID(T t)
         {
-            throw new NotImplementedException();
+            int result = 0;
+            try
+            {
+                IDbCommand cmd = datacontext.Connection.CreateCommand();
+                cmd.Parameters.Clear();
+                var iq = new InsertQuery(Entity);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = iq.GetQuerywithParameter(t) + "; select last_insert_rowid();";
+                iq.SetParameter(ref cmd, t);
+                result = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (SQLiteException ex)
+            {
+                throw new System.Exception(ex.Message);
+            }
+
+            return result;
         }
 
         public object GetLastItem()
