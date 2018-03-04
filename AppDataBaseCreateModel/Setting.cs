@@ -12,7 +12,7 @@ namespace AppDataBaseCreateModel
 {
     public partial class Setting : Form
     {
-        DAL.MyConfiguration config = new DAL.MyConfiguration();
+        Ocph.DAL.MyConfiguration config = new Ocph.DAL.MyConfiguration();
         public Setting()
         {
             InitializeComponent();
@@ -60,9 +60,9 @@ namespace AppDataBaseCreateModel
             {
                 try
                 {
-                    db.Connection.Open();
+                db.Open();
                     MessageBox.Show("Connection Is Ok");
-                    db.Connection.Close();
+                    db.Close();
                 }
                 catch (Exception ex)
                 {

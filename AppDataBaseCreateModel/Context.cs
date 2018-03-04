@@ -1,57 +1,25 @@
-﻿using DAL.DContext;
-using DAL.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Ocph.DAL;
+using Ocph.DAL.Provider.MySql;
 
 namespace AppDataBaseCreateModel
 {
-    public class ContextTest : IDbContext, IDisposable
+    public class ContextTest : MySqlDbConnection
     {
-        private string ConnectionString = "Server=localhost;database=belajar;UID=root;password=;CharSet=utf8;Persist Security Info=True";
-      
-        private IDbConnection _Connection;
-
-        public ContextTest()
-        {
-
-        }
-        public ContextTest(string constr) {
+       
+        public ContextTest(string constr):base(constr) {
 
             ConnectionString = constr;
         }
 
         //  public IRepository<IdentityUser> Users { get { return new Repository<IdentityUser>(this); } }
 
-        public IDbConnection Connection
-        {
-            get
-            {
-                if (_Connection == null)
-                {
-                    _Connection = new MySqlDbContext(this.ConnectionString);
-                    return _Connection;
-                }
-                else
-                {
-                    return _Connection;
-                }
-            }
-        }
-
-        public void Dispose()
-        {
-            if (_Connection != null)
-            {
-                if (this.Connection.State != ConnectionState.Closed)
-                {
-                    this.Connection.Close();
-                }
-            }
-        }
+       
     }
 }

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppDataBaseCreateModel</RootNamespace>
     <AssemblyName>AppDataBaseCreateModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,6 +72,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
@@ -92,13 +94,13 @@
     <Compile Include="Context.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IQuerableImplement\DAL.csproj">
-      <Project>{b80cefb7-fb32-4c32-9fbf-1f0ad7dd2863}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
+    <TypeScriptCompile Include="Test.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Test.ts" />
+    <ProjectReference Include="..\Ocph.DAL.NET\Ocph.DAL.NET.csproj">
+      <Project>{46f3f75f-0840-449c-94ff-9aade3e753ec}</Project>
+      <Name>Ocph.DAL.NET</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

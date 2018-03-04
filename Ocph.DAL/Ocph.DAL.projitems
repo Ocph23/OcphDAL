@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fe4be3be-c5cf-4e3f-b710-e5fff9d4d172</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Ocph.DAL</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BaseNotify.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DbContext\IDataTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\CollectPropertyFromExpression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\SelectTranslator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\UpdateTranslator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\WhereTranslator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extentions\QueryExtention.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\ColumnInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingCommaon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\DeleteQuery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\InsertQuery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\UpdateQuery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository\IEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository\IRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository\Repository.cs" />
+  </ItemGroup>
+</Project>

@@ -1,4 +1,4 @@
-﻿using DAL.Mapping;
+﻿using Ocph.DAL.Mapping;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +14,9 @@ namespace AppDataBaseCreateModel
 {
     public partial class Form1 : Form
     {
-        DAL.MyConfiguration config = new DAL.MyConfiguration();
+        Ocph.DAL.MyConfiguration config = new Ocph.DAL.MyConfiguration();
         private StringBuilder sb;
+        private StringBuilder Isb;
         private StringBuilder sbview;
         private string constr;
         private string commandText;
@@ -36,17 +37,20 @@ namespace AppDataBaseCreateModel
             this.FolderPath.Text = config.Path;
             this.Poco.Checked = true;
             this.Modern.Checked = true;
-            this.Header.Text = @"using System; 
+            this.Header.Text = 
+@"using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;";
+using System.Threading.Tasks;
+";
 
             
             this.constr = string.Format("Server={0};database={1};UID={2};password={3};Port={4};CharSet=utf8;Persist Security Info=True",
                SettingDatabase.Server, SettingDatabase.Database, SettingDatabase.UserName, SettingDatabase.Password, SettingDatabase.Port);
-            this.commandText= string.Format(@"SELECT TABLE_SCHEMA, DATA_TYPE, COLUMN_TYPE, TABLE_NAME 
-                                    FROM INFORMATION_SCHEMA.COLUMNS where
+            this.commandText= string.Format(
+                                        @"SELECT TABLE_SCHEMA, DATA_TYPE, COLUMN_TYPE, TABLE_NAME 
+                                        FROM INFORMATION_SCHEMA.COLUMNS where
                                         `columns`.`TABLE_Schema`='{0}' group by table_name", SettingDatabase.Database);
 
 
@@ -80,46 +84,47 @@ using System.Threading.Tasks;";
         }
 
 
-        public void CreateFile(StringBuilder sb, MySchemaInfor itemtable,string extention)
+        public void CreateFile(StringBuilder sb, StringBuilder Isb, MySchemaInfor itemtable,string extention)
         {
-            string path = string.Format("{0}\\{1}.{2}", FolderPath.Text, itemtable.TableName,extention);
-
-            try
+            Tuple<string,StringBuilder> path = new Tuple<string, StringBuilder>(string.Format("{0}\\{1}.{2}", FolderPath.Text, itemtable.TableName,extention),sb);
+            Tuple<string, StringBuilder> Ipath = new Tuple<string, StringBuilder>(string.Format("{0}\\I{1}.{2}", FolderPath.Text, itemtable.TableName, extention), Isb);
+            Tuple<string, StringBuilder> [] Paths = { path, Ipath };
+            foreach(var item in Paths)
             {
-
-                // Delete the file if it exists.
-                if (File.Exists(path))
+                try
                 {
-                    // Note that no lock is put on the
-                    // file and the possibility exists
-                    // that another process could do
-                    // something with it between
-                    // the calls to Exists and Delete.
-                    File.Delete(path);
-                }
 
-                // Create the file.
-                using (FileStream fs = File.Create(path))
-                {
-                    Byte[] info = new UTF8Encoding(true).GetBytes(sb.ToString());
-                    // Add some information to the file.
-                    fs.Write(info, 0, info.Length);
-                }
-
-                // Open the stream and read it back.
-                using (StreamReader sr = File.OpenText(path))
-                {
-                    string s = "";
-                    while ((s = sr.ReadLine()) != null)
+                    // Delete the file if it exists.
+                    if (File.Exists(item.Item1))
                     {
-                        Console.WriteLine(s);
+                       
+                        File.Delete(item.Item1);
+                    }
+
+                    // Create the file.
+                    using (FileStream fs = File.Create(item.Item1))
+                    {
+                        Byte[] info = new UTF8Encoding(true).GetBytes(item.Item2.ToString());
+                        // Add some information to the file.
+                        fs.Write(info, 0, info.Length);
+                    }
+
+                    // Open the stream and read it back.
+                    using (StreamReader sr = File.OpenText(item.Item1))
+                    {
+                        string s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            Console.WriteLine(s);
+                        }
                     }
                 }
-            }
 
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+
             }
         }
 
@@ -129,6 +134,7 @@ using System.Threading.Tasks;";
         {
             Body.Text = string.Empty;
             this.sb = new StringBuilder();
+            this.Isb = new StringBuilder();
             this.sbview = new StringBuilder();
 
 
@@ -163,7 +169,7 @@ using System.Threading.Tasks;";
             {
                 try
                 {
-                    var cmd = db.Connection.CreateCommand();
+                    var cmd = db.CreateCommand();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = this.commandText;
                     IDataReader dr = cmd.ExecuteReader();
@@ -186,9 +192,11 @@ using System.Threading.Tasks;";
 
                     foreach (var itemtable in list)
                     {
-
+                        Isb.Append("using System;\r");
                         sb.Append(string.Format("\n \n namespace {0} \n", ns));
                         sb.Append("{ \n");
+                        Isb.Append(string.Format("\n \n namespace {0} \n", ns));
+                        Isb.Append("{ \n\r");
 
                         if (OcphDal.Checked)
                         {
@@ -196,16 +204,16 @@ using System.Threading.Tasks;";
 
                         }
 
-
-
-                        sb.Append(string.Format("     public class {0}", itemtable.TableName));
+                        sb.Append(string.Format("     public class {0} :I{0}", itemtable.TableName));
+                        Isb.Append(string.Format("     public interface {0}", itemtable.TableName));
 
                         if (Inpc.Checked)
                         {
-                            sb.Append(":BaseNotifyProperty");
+                            sb.Append(",BaseNotify");
                         }
 
                         sb.Append("  \n   {\n");
+                        Isb.Append("  \n   {\n");
 
                         cmd.CommandText = string.Format("Select * From {0}.{1} limit 1", itemtable.Database, itemtable.TableName);
                         dr = cmd.ExecuteReader();
@@ -223,6 +231,12 @@ using System.Threading.Tasks;";
                                 sb.Append(string.Format("          [DbColumn({0}{1}{2})] \n", '"', item.ColumnName, '"'));
 
                             }
+
+                            Isb.Append(string.Format("         {0} {1} ", DataTypeConvert.CSharp(item.DataType), item.ColumnName));
+                            Isb.Append("{  get; set;} \n\n");
+
+
+
 
                             if (Modern.Checked)
                             {
@@ -242,7 +256,7 @@ using System.Threading.Tasks;";
                                 }
                                 else
                                 {
-                                    sb.Append(string.Format("SetProperty(ref _{0}, value);", item.ColumnName.ToLower()));
+                                    sb.Append(string.Format("\n                    SetProperty(ref _{0}, value);", item.ColumnName.ToLower()));
                                 }
 
                                 sb.Append("\n                     }\n          } \n\n");
@@ -264,33 +278,26 @@ using System.Threading.Tasks;";
                         dr.Close();
 
 
-
-
-
-
-
-
                         sb.Append("     }\n");
                         sb.Append("}\n\n\n");
+
+                        Isb.Append("     }\n");
+                        Isb.Append("}\n\n\n");
 
 
                         if (aClass1File.Checked)
                         {
                             if (OcphDal.Checked)
                             {
-                                sb.Insert(0, "using DAL;");
+                                sb.Insert(0, "using Ocph.DAL;");
                             }
                             sb.Insert(0, Header.Text);
                             sbview.Append(sb.ToString());
-                            CreateFile(sb, itemtable,"cs");
+                            CreateFile(sb,Isb, itemtable,"cs");
                             sb.Clear();
+                            Isb.Clear();
                         }
                     }
-
-
-
-
-
                 }
                 catch (Exception ex)
                 {
@@ -314,7 +321,7 @@ using System.Threading.Tasks;";
 
             using (var ctx = new ContextTest(constr))
             {
-                var cmd = ctx.Connection.CreateCommand();
+                var cmd = ctx.CreateCommand();
                 cmd.CommandType = CommandType.Text;
 
                 cmd.CommandText = string.Format(@"SELECT TABLE_SCHEMA, DATA_TYPE, COLUMN_TYPE, TABLE_NAME 
@@ -369,7 +376,7 @@ using System.Threading.Tasks;";
                     if (aClass1File.Checked)
                     {
                         sbview.Append(sb.ToString());
-                        CreateFile(sb, itemtable,"ts");
+                        CreateFile(sb,Isb, itemtable,"ts");
                         sb.Clear();
                     }
 
@@ -394,7 +401,7 @@ using System.Threading.Tasks;";
 
             using (var ctx = new ContextTest(constr))
             {
-                var cmd = ctx.Connection.CreateCommand();
+                var cmd = ctx.CreateCommand();
                 cmd.CommandType = CommandType.Text;
 
                 cmd.CommandText = string.Format(@"SELECT TABLE_SCHEMA, DATA_TYPE, COLUMN_TYPE, TABLE_NAME 
@@ -449,7 +456,7 @@ using System.Threading.Tasks;";
                     if (aClass1File.Checked)
                     {
                         sbview.Append(sb.ToString());
-                        CreateFile(sb, itemtable, "php");
+                        CreateFile(sb,Isb, itemtable, "php");
                         sb.Clear();
                     }
 

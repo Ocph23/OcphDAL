@@ -50,10 +50,10 @@
             this.FolderPath = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.java = new System.Windows.Forms.RadioButton();
             this.php = new System.Windows.Forms.RadioButton();
             this.typeScript = new System.Windows.Forms.RadioButton();
             this.cSharp = new System.Windows.Forms.RadioButton();
-            this.java = new System.Windows.Forms.RadioButton();
             this.GroupModel.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -263,7 +263,7 @@
             // FolderPath
             // 
             this.FolderPath.Location = new System.Drawing.Point(17, 22);
-            this.FolderPath.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FolderPath.Margin = new System.Windows.Forms.Padding(2);
             this.FolderPath.Name = "FolderPath";
             this.FolderPath.ReadOnly = true;
             this.FolderPath.Size = new System.Drawing.Size(189, 20);
@@ -292,6 +292,16 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Programming Language";
             // 
+            // java
+            // 
+            this.java.AutoSize = true;
+            this.java.Location = new System.Drawing.Point(17, 88);
+            this.java.Name = "java";
+            this.java.Size = new System.Drawing.Size(128, 17);
+            this.java.TabIndex = 6;
+            this.java.Text = "Java (Comming Soon)";
+            this.java.UseVisualStyleBackColor = true;
+            // 
             // php
             // 
             this.php.AutoSize = true;
@@ -299,7 +309,6 @@
             this.php.Name = "php";
             this.php.Size = new System.Drawing.Size(127, 17);
             this.php.TabIndex = 5;
-            this.php.TabStop = true;
             this.php.Text = "PHP (Comming Soon)";
             this.php.UseVisualStyleBackColor = true;
             // 
@@ -310,13 +319,13 @@
             this.typeScript.Name = "typeScript";
             this.typeScript.Size = new System.Drawing.Size(76, 17);
             this.typeScript.TabIndex = 4;
-            this.typeScript.TabStop = true;
             this.typeScript.Text = "TypeScript";
             this.typeScript.UseVisualStyleBackColor = true;
             // 
             // cSharp
             // 
             this.cSharp.AutoSize = true;
+            this.cSharp.Checked = true;
             this.cSharp.Location = new System.Drawing.Point(17, 19);
             this.cSharp.Name = "cSharp";
             this.cSharp.Size = new System.Drawing.Size(42, 17);
@@ -324,17 +333,6 @@
             this.cSharp.TabStop = true;
             this.cSharp.Text = "C #";
             this.cSharp.UseVisualStyleBackColor = true;
-            // 
-            // java
-            // 
-            this.java.AutoSize = true;
-            this.java.Location = new System.Drawing.Point(17, 88);
-            this.java.Name = "java";
-            this.java.Size = new System.Drawing.Size(128, 17);
-            this.java.TabIndex = 6;
-            this.java.TabStop = true;
-            this.java.Text = "Java (Comming Soon)";
-            this.java.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
