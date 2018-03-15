@@ -4,15 +4,15 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>Ocph.DAL.Core</AssemblyName>
     <RootNamespace>Ocph.DAL.Core</RootNamespace>
-    <AssemblyVersion>3.0.0.2</AssemblyVersion>
-    <FileVersion>3.0.0.2</FileVersion>
-    <Version>3.0.2</Version>
+    <AssemblyVersion>3.0.0.3</AssemblyVersion>
+    <FileVersion>3.0.0.3</FileVersion>
+    <Version>3.0.3</Version>
   </PropertyGroup>
 
   <Import Project="..\Ocph.DAL\Ocph.DAL.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="6.9.11" />
+    <PackageReference Include="MySql.Data" Version="6.10.6" />
   </ItemGroup>
 
 </Project>

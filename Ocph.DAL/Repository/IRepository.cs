@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-
-
+using ModelsShared.Models;
 
 namespace Ocph.DAL.Repository
 {
@@ -27,5 +26,6 @@ namespace Ocph.DAL.Repository
         object ExecuteStoreProcedureNonQuery(string storeProcedure);
 
         T GetLastItem();
+      
     }
 }

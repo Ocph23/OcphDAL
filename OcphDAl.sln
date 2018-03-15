@@ -11,9 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ocph.DAL.Core", "Ocph.DAL.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocph.DAL.NET", "Ocph.DAL.NET\Ocph.DAL.NET.csproj", "{46F3F75F-0840-449C-94FF-9AADE3E753EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocph.DAL.NET45", "Ocph.DAL.NET45\Ocph.DAL.NET45.csproj", "{55FFC7F4-6D57-4127-971E-B9C12E35FF05}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Ocph.DAL\Ocph.DAL.projitems*{46f3f75f-0840-449c-94ff-9aade3e753ec}*SharedItemsImports = 4
+		Ocph.DAL\Ocph.DAL.projitems*{55ffc7f4-6d57-4127-971e-b9c12e35ff05}*SharedItemsImports = 4
 		Ocph.DAL\Ocph.DAL.projitems*{fe4be3be-c5cf-4e3f-b710-e5fff9d4d172}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +36,10 @@ Global
 		{46F3F75F-0840-449C-94FF-9AADE3E753EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F3F75F-0840-449C-94FF-9AADE3E753EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F3F75F-0840-449C-94FF-9AADE3E753EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55FFC7F4-6D57-4127-971E-B9C12E35FF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55FFC7F4-6D57-4127-971E-B9C12E35FF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55FFC7F4-6D57-4127-971E-B9C12E35FF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55FFC7F4-6D57-4127-971E-B9C12E35FF05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

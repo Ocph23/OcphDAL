@@ -36,6 +36,8 @@ namespace Ocph.DAL.Mapping
         {
             foreach (var property in entityParent.Properties)
             {
+
+              
                 var columnMapping = entityParent.GetAttributDbColumn(property);
 
                 if (columnMapping != null)
@@ -45,14 +47,34 @@ namespace Ocph.DAL.Mapping
                     {
                         var value = dr.GetValue(field.Ordinal);
                         if (value is DBNull)
-                            value = null;
-                        property.SetValue(obj, this.GetValue(property, value));
+                        {
+
+                        }
+                        else
+                        {
+                            try
+                            {
+                                property.SetValue(obj, this.GetValue(property, value));
+                            }
+                            catch (Exception ex)
+                            {
+
+                                throw new SystemException(ex.Message);
+                            }
+               
+                        }
                     }
                 }
             }
 
             return (T)obj;
         }
+
+        private static bool IsNullableType(Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition().Equals(typeof(Nullable<>));
+        }
+
 
         public IList MappingWithoutInclud(IDataReader dr, Type T) 
         {
@@ -234,6 +256,14 @@ namespace Ocph.DAL.Mapping
         private static object ConverValue(System.Reflection.PropertyInfo p, object obj)
         {
             var propertyType = p.PropertyType;
+
+            var targetType = IsNullableType(propertyType) ? Nullable.GetUnderlyingType(propertyType) : propertyType;
+            obj = Convert.ChangeType(obj, targetType);
+
+
+
+
+
             switch (propertyType.Name)
             { 
                 case  "Boolean":
@@ -244,7 +274,7 @@ namespace Ocph.DAL.Mapping
                     obj = GetImage(obj);
                     break;
                 default:
-                    obj = Convert.ChangeType(obj, p.PropertyType);
+                    obj = Convert.ChangeType(obj, targetType);
                     break;
             }
 
