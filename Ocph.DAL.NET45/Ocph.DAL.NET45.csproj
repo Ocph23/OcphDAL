@@ -7,8 +7,8 @@
     <ProjectGuid>{55FFC7F4-6D57-4127-971E-B9C12E35FF05}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ocph.DAL.NET45</RootNamespace>
-    <AssemblyName>Ocph.DAL.NET45</AssemblyName>
+    <RootNamespace>Ocph.DAL</RootNamespace>
+    <AssemblyName>Ocph.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

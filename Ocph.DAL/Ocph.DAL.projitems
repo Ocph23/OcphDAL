@@ -20,8 +20,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\QueryExtention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\ColumnInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingProperties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingColumn.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingCommaon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingCommon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbConnection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\DeleteQuery.cs" />

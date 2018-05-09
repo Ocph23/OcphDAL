@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ocph.DAL.Mapping
 {
-    public class MappingCommaon
+    public class MappingCommon
     {
         public static List<ColumnInfo> ReadColumnInfo(DataTable TableSchema)
         {

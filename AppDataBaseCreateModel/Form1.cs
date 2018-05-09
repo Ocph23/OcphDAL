@@ -23,6 +23,8 @@ namespace AppDataBaseCreateModel
 
         public Form1()
         {
+            
+           
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             SettingDatabase = new DatabaseSetting
@@ -54,6 +56,18 @@ using System.Threading.Tasks;
                                         `columns`.`TABLE_Schema`='{0}' group by table_name", SettingDatabase.Database);
 
 
+
+            //using (var db = new OcphDbContext(constr))
+            //{
+            //    var cmd =db.CreateCommand();
+            //    cmd.CommandType = CommandType.Text;
+            //    cmd.CommandText = "Select * from anggota;";
+            //    var dr = cmd.ExecuteReader();
+            //    var mapping = MappingProperties<anggota>.MappingTable(dr);
+                
+            //}
+
+
         }
 
 
@@ -71,7 +85,7 @@ using System.Threading.Tasks;
                 info.TableName = dr[3].ToString();
                 list.Add(info);
             }
-            dr.Close();
+          
             return list;
 
         }
@@ -175,6 +189,7 @@ using System.Threading.Tasks;
                     IDataReader dr = cmd.ExecuteReader();
                     var s = dr.GetSchemaTable();
                     List<MySchemaInfor> list = this.GetTable(dr);
+                    dr.Close();
                     var ns = "";
                     if (!string.IsNullOrEmpty(namespacess.Text))
                     {
@@ -204,20 +219,29 @@ using System.Threading.Tasks;
 
                         }
 
-                        sb.Append(string.Format("     public class {0} :I{0}", itemtable.TableName));
-                        Isb.Append(string.Format("     public interface {0}", itemtable.TableName));
+                       
 
                         if (Inpc.Checked)
                         {
-                            sb.Append(",BaseNotify");
+                            sb.Append(string.Format("     public class {0} :BaseNotify, I{0}", itemtable.TableName));
                         }
+                        else
+                        {
+                            sb.Append(string.Format("     public class {0} :I{0}", itemtable.TableName));
+                        }
+
+
+
+                        Isb.Append(string.Format("     public interface {0}", itemtable.TableName));
+
+                        
 
                         sb.Append("  \n   {\n");
                         Isb.Append("  \n   {\n");
 
                         cmd.CommandText = string.Format("Select * From {0}.{1} limit 1", itemtable.Database, itemtable.TableName);
                         dr = cmd.ExecuteReader();
-                        List<ColumnInfo> ReaderSchema = MappingCommaon.ReadColumnInfo(dr.GetSchemaTable());
+                        List<ColumnInfo> ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
 
                         foreach (var item in ReaderSchema)
                         {
@@ -357,7 +381,7 @@ using System.Threading.Tasks;
 
                     cmd.CommandText = string.Format("Select * From {0}.{1} limit 1", itemtable.Database, itemtable.TableName);
                     dr = cmd.ExecuteReader();
-                    List<ColumnInfo> ReaderSchema = MappingCommaon.ReadColumnInfo(dr.GetSchemaTable());
+                    List<ColumnInfo> ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
 
                     foreach (var item in ReaderSchema)
                     {
@@ -437,7 +461,7 @@ using System.Threading.Tasks;
 
                     cmd.CommandText = string.Format("Select * From {0}.{1} limit 1", itemtable.Database, itemtable.TableName);
                     dr = cmd.ExecuteReader();
-                    List<ColumnInfo> ReaderSchema = MappingCommaon.ReadColumnInfo(dr.GetSchemaTable());
+                    List<ColumnInfo> ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
 
                     foreach (var item in ReaderSchema)
                     {

@@ -2,11 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>Ocph.DAL.Core</AssemblyName>
-    <RootNamespace>Ocph.DAL.Core</RootNamespace>
-    <AssemblyVersion>3.0.0.3</AssemblyVersion>
-    <FileVersion>3.0.0.3</FileVersion>
-    <Version>3.0.3</Version>
+    <AssemblyName>Ocph.DAL</AssemblyName>
+    <RootNamespace>Ocph.DAL</RootNamespace>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.4</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>OcphDAL</PackageId>
+    <Authors>Yoseph Kungkung</Authors>
+    <Company>None</Company>
   </PropertyGroup>
 
   <Import Project="..\Ocph.DAL\Ocph.DAL.projitems" Label="Shared" />

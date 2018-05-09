@@ -20,7 +20,7 @@ namespace Ocph.DAL.Mapping
         }
         public List<T> MappingWithoutInclud<T>(IDataReader dr)
         {
-            ReaderSchema = MappingCommaon.ReadColumnInfo(dr.GetSchemaTable());
+            ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
 
             List<T> list = new List<T>();
             

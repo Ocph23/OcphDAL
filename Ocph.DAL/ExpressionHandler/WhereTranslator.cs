@@ -392,14 +392,29 @@ namespace Ocph.DAL.ExpressionHandler
                     //  Visit(m.Expression);
                 }
 
-                if (m.NodeType == ExpressionType.MemberAccess && m.Expression.NodeType == ExpressionType.Constant &&
+
+                
+
+                if (m.NodeType == ExpressionType.MemberAccess && 
+                    m.Expression.NodeType == ExpressionType.Constant &&
                     m.Member.MemberType == MemberTypes.Field)
                 {
                     var val = Expression.Lambda(m).Compile().DynamicInvoke();
                     sb.Append(Helpers.ConverConstant(val));
                 }
 
-                if (m.NodeType == ExpressionType.MemberAccess && m.Expression.NodeType == ExpressionType.Constant &&
+
+
+                if (m.NodeType == ExpressionType.MemberAccess &&
+                    m.Expression.NodeType == ExpressionType.MemberAccess &&
+                    m.Member.MemberType == MemberTypes.Field)
+                {
+                    var val = Expression.Lambda(m).Compile().DynamicInvoke();
+                    sb.Append(Helpers.ConverConstant(val));
+                }
+
+                if (m.NodeType == ExpressionType.MemberAccess &&
+                    m.Expression.NodeType == ExpressionType.Constant &&
                    m.Member.MemberType == MemberTypes.Property)
                 {
                     var val = Expression.Lambda(m).Compile().DynamicInvoke();

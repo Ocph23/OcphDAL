@@ -15,6 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocph.DAL.NET45", "Ocph.DAL.
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Ocph.DAL\Ocph.DAL.projitems*{00ae6750-3b97-48f5-96a7-3c50c5f327e4}*SharedItemsImports = 4
 		Ocph.DAL\Ocph.DAL.projitems*{46f3f75f-0840-449c-94ff-9aade3e753ec}*SharedItemsImports = 4
 		Ocph.DAL\Ocph.DAL.projitems*{55ffc7f4-6d57-4127-971e-b9c12e35ff05}*SharedItemsImports = 4
 		Ocph.DAL\Ocph.DAL.projitems*{fe4be3be-c5cf-4e3f-b710-e5fff9d4d172}*SharedItemsImports = 13

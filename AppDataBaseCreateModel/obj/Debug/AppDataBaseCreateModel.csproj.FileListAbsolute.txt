@@ -43,3 +43,16 @@ C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\DAL.dll.co
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.xml
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\ocph23\Source\Repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.exe.config
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.exe
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.pdb
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\bin\Debug\MySql.Data.dll
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csprojResolveAssemblyReference.cache
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Form1.resources
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Properties.Resources.resources
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Setting.resources
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.GenerateResource.cache
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CopyComplete
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.exe
+D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.pdb

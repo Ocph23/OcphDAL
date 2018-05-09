@@ -45,7 +45,6 @@
             this.Body = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.namespacess = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.FolderPath = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.php = new System.Windows.Forms.RadioButton();
             this.typeScript = new System.Windows.Forms.RadioButton();
             this.cSharp = new System.Windows.Forms.RadioButton();
+            this.namespacess = new System.Windows.Forms.TextBox();
             this.GroupModel.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -241,14 +241,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Namespace";
             // 
-            // namespacess
-            // 
-            this.namespacess.Location = new System.Drawing.Point(17, 21);
-            this.namespacess.Name = "namespacess";
-            this.namespacess.Size = new System.Drawing.Size(240, 21);
-            this.namespacess.TabIndex = 4;
-            this.namespacess.Text = "YourApplication";
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.FolderPath);
@@ -334,6 +326,14 @@
             this.cSharp.Text = "C #";
             this.cSharp.UseVisualStyleBackColor = true;
             // 
+            // namespacess
+            // 
+            this.namespacess.Location = new System.Drawing.Point(17, 19);
+            this.namespacess.Name = "namespacess";
+            this.namespacess.Size = new System.Drawing.Size(402, 20);
+            this.namespacess.TabIndex = 5;
+            this.namespacess.Text = "Namespace";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +358,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -376,7 +377,6 @@
         private System.Windows.Forms.RichTextBox Body;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox namespacess;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton Clasic;
         private System.Windows.Forms.RadioButton Modern;
@@ -394,6 +394,7 @@
         private System.Windows.Forms.RadioButton php;
         private System.Windows.Forms.RadioButton typeScript;
         private System.Windows.Forms.RadioButton cSharp;
+        private System.Windows.Forms.TextBox namespacess;
     }
 }
 
