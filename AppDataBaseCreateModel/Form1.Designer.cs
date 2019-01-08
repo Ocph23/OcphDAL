@@ -45,15 +45,15 @@
             this.Body = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.namespacess = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.FolderPath = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.java = new System.Windows.Forms.RadioButton();
             this.php = new System.Windows.Forms.RadioButton();
             this.typeScript = new System.Windows.Forms.RadioButton();
             this.cSharp = new System.Windows.Forms.RadioButton();
-            this.namespacess = new System.Windows.Forms.TextBox();
+            this.FolderPath = new System.Windows.Forms.TextBox();
             this.GroupModel.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -241,6 +241,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Namespace";
             // 
+            // namespacess
+            // 
+            this.namespacess.Location = new System.Drawing.Point(17, 19);
+            this.namespacess.Name = "namespacess";
+            this.namespacess.Size = new System.Drawing.Size(402, 20);
+            this.namespacess.TabIndex = 5;
+            this.namespacess.Text = "Namespace";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.FolderPath);
@@ -252,18 +260,9 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Save To ..";
             // 
-            // FolderPath
-            // 
-            this.FolderPath.Location = new System.Drawing.Point(17, 22);
-            this.FolderPath.Margin = new System.Windows.Forms.Padding(2);
-            this.FolderPath.Name = "FolderPath";
-            this.FolderPath.ReadOnly = true;
-            this.FolderPath.Size = new System.Drawing.Size(189, 20);
-            this.FolderPath.TabIndex = 8;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(211, 16);
+            this.button3.Location = new System.Drawing.Point(373, 15);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(46, 32);
             this.button3.TabIndex = 7;
@@ -326,13 +325,12 @@
             this.cSharp.Text = "C #";
             this.cSharp.UseVisualStyleBackColor = true;
             // 
-            // namespacess
+            // FolderPath
             // 
-            this.namespacess.Location = new System.Drawing.Point(17, 19);
-            this.namespacess.Name = "namespacess";
-            this.namespacess.Size = new System.Drawing.Size(402, 20);
-            this.namespacess.TabIndex = 5;
-            this.namespacess.Text = "Namespace";
+            this.FolderPath.Location = new System.Drawing.Point(22, 21);
+            this.FolderPath.Name = "FolderPath";
+            this.FolderPath.Size = new System.Drawing.Size(340, 20);
+            this.FolderPath.TabIndex = 8;
             // 
             // Form1
             // 
@@ -388,13 +386,13 @@
         private System.Windows.Forms.RadioButton Poco;
         private System.Windows.Forms.CheckBox Inpc;
         private System.Windows.Forms.CheckBox aClass1File;
-        private System.Windows.Forms.TextBox FolderPath;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.RadioButton java;
         private System.Windows.Forms.RadioButton php;
         private System.Windows.Forms.RadioButton typeScript;
         private System.Windows.Forms.RadioButton cSharp;
         private System.Windows.Forms.TextBox namespacess;
+        private System.Windows.Forms.TextBox FolderPath;
     }
 }
 

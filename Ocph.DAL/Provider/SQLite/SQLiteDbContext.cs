@@ -1,25 +1,25 @@
-﻿using MySql.Data.MySqlClient;
-using Ocph.DAL.DbContext;
+﻿using Ocph.DAL.DbContext;
 using Ocph.DAL.ExpressionHandler;
-using Ocph.DAL.Mapping.MySql;
+using Ocph.DAL.Mapping.SQLite;
 using Ocph.DAL.QueryBuilder;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace Ocph.DAL.Provider.MySql
+namespace Ocph.DAL.Provider.SQLite
 {
-    internal class MySqlDbContext<T>:IDataTable<T>
+    internal class SQLiteDbContext<T> : IDataTable<T>
     {
         public EntityInfo Entity { get; set; }
         public IDbConnection connection { get; set; }
 
-        public MySqlDbContext(IDbConnection con)
+        public SQLiteDbContext(IDbConnection con)
         {
             this.Entity = new EntityInfo(typeof(T));
             connection = con;
@@ -44,9 +44,9 @@ namespace Ocph.DAL.Provider.MySql
                 else
                     return false;
             }
-            catch (MySqlException ex)
+            catch (SQLiteException ex)
             {
-                throw new System.Exception(Helpers.MySqlErrorHandle(ex));
+                throw new System.Exception(SQLiteProviderHelper.ErrorHandle(ex));
             }
         }
 
@@ -63,9 +63,9 @@ namespace Ocph.DAL.Provider.MySql
                     result = true;
 
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
-                throw new System.Exception(Helpers.MySqlErrorHandle(ex));
+                throw new System.Exception(ex.Message);
             }
             return result;
         }
@@ -79,24 +79,19 @@ namespace Ocph.DAL.Provider.MySql
             var Query = new UpdateQuery(Entity,cmd);
             cmd.CommandText = Query.GetQueryWithParameter(fieldUpdate, whereClause, source);
       //      Query.SetParameters(cmd);
-
-
             try
             {
                 if (cmd.ExecuteNonQuery() > 0)
                     result = true;
 
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
-                throw new System.Exception(Helpers.MySqlErrorHandle(ex));
+                throw new System.Exception(ex.Message);
 
             }
             return result;
-
-
         }
-
 
         public IQueryable<T> Select(Expression<Func<T, bool>> expression)
         {
@@ -114,9 +109,17 @@ namespace Ocph.DAL.Provider.MySql
             IDataReader dr = null;
             try
             {
-                dr = cmd.ExecuteReader() as MySqlDataReader;
-                var map = new MappingColumn(Entity);
-                list=map.MappingWithoutInclud<T>(dr);
+                dr = cmd.ExecuteReader();
+                if(dr!=null)
+                {
+                    var map = new MappingColumn(Entity);
+                    list = map.MappingWithoutInclud<T>(dr);
+                }
+                else
+                {
+                    throw new SystemException("Data Tidak Ditemukan");
+                }
+          
             }
             catch (Exception ex)
             {
@@ -131,7 +134,6 @@ namespace Ocph.DAL.Provider.MySql
             return list.AsQueryable();
         }
 
-
         public IQueryable<T> SelectAll()
         {
             List<T> list = new List<T>();
@@ -144,7 +146,9 @@ namespace Ocph.DAL.Provider.MySql
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sb.ToString();
                 dr = cmd.ExecuteReader();
-                list = new MappingColumn(Entity).MappingWithoutInclud<T>(dr);
+                var mapping = new MappingColumn(Entity);
+                mapping.ReaderSchema = this.ReadColumnInfo(dr.GetSchemaTable());
+                list = mapping.MappingWithoutInclud<T>(dr);
             }
             catch (Exception ex)
             {
@@ -157,8 +161,6 @@ namespace Ocph.DAL.Provider.MySql
             }
             return list.AsQueryable<T>();
         }
-
-
 
         public IQueryable<T> Select(Expression<Func<T, dynamic>> expression)
         {
@@ -198,9 +200,9 @@ namespace Ocph.DAL.Provider.MySql
             IDataReader dr = null;
             try
             {
-                dr = cmd.ExecuteReader() as MySqlDataReader;
-                var map= new MappingColumn(Entity);
-                list=map.MappingWithoutInclud<T>(dr);
+                dr = cmd.ExecuteReader() as SQLiteDataReader;
+                var map = new MappingColumn(Entity);
+                list = map.MappingWithoutInclud<T>(dr);
             }
             catch (Exception ex)
             {
@@ -331,14 +333,14 @@ namespace Ocph.DAL.Provider.MySql
                 var iq = new InsertQuery(Entity);
 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = iq.GetQuerywithParameter(t) + "; select Last_Insert_ID();";
+                cmd.CommandText = iq.GetQuerywithParameter(t) + "; select last_insert_rowid();";
                 SetParameter(ref cmd, t);
                 result = Convert.ToInt32(cmd.ExecuteScalar());
 
             }
-            catch (MySqlException ex)
+            catch (SQLiteException ex)
             {
-                throw new System.Exception(Helpers.MySqlErrorHandle(ex));
+                throw new System.Exception(SQLiteProviderHelper.ErrorHandle(ex));
             }
 
             return result;
@@ -353,7 +355,7 @@ namespace Ocph.DAL.Provider.MySql
             IDataReader dr = null;
             try
             {
-                dr = cmd.ExecuteReader() as MySqlDataReader;
+                dr = cmd.ExecuteReader() as SQLiteDataReader;
                 list = new MappingColumn(Entity).MappingWithoutInclud<T>(dr);
             }
             catch (Exception ex)
@@ -368,7 +370,7 @@ namespace Ocph.DAL.Provider.MySql
             }
             return list.FirstOrDefault();
         }
-        
+
         public object ExecuteNonQuery(string query)
         {
             IDbCommand cmd = connection.CreateCommand();
@@ -413,14 +415,38 @@ namespace Ocph.DAL.Provider.MySql
             return dr;
         }
 
+
         internal void SetParameter(ref System.Data.IDbCommand cmd, object obj)
         {
             EntityInfo ent = new EntityInfo(obj.GetType());
             foreach (PropertyInfo p in ent.DbTableProperty)
             {
-                cmd.Parameters.Add(new MySqlParameter(string.Format("@{0}", ent.GetAttributDbColumn(p)), Helpers.GetParameterValue(p, p.GetValue(obj))));
+                cmd.Parameters.Add(new SQLiteParameter(string.Format("@{0}", ent.GetAttributDbColumn(p)), Helpers.GetParameterValue(p, p.GetValue(obj))));
             }
 
+        }
+
+        private  List<ColumnInfo> ReadColumnInfo(DataTable TableSchema)
+        {
+            List<ColumnInfo> list = new List<ColumnInfo>();
+            foreach (DataRow row in TableSchema.Rows)
+            {
+                ColumnInfo mr = new ColumnInfo();
+                object[] info = row.ItemArray;
+                mr.ColumnName = info[0].ToString();
+                mr.Ordinal = (Int32)info[1];
+                mr.ColumnSize = (Int32)info[2];
+                mr.IsUnique = (bool)info[5];
+                mr.IsKey = (bool)info[6];
+                mr.BaseCatalogName = info[8].ToString();
+                mr.TableName = info[11].ToString();
+                mr.DataType = (Type)info[12];
+                mr.AllowNUll = (bool)info[13];
+                mr.ProviderType = (Int32)info[14];
+                mr.IsAutoIncrement = (bool)info[17];
+                list.Add(mr);
+            }
+            return list;
         }
     }
 }

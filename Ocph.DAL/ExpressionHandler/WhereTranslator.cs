@@ -350,6 +350,7 @@ namespace Ocph.DAL.ExpressionHandler
                 {
                     EntityInfo entity = new EntityInfo(m.Member.ReflectedType);
                     PropertyInfo p = entity.GetPropertyByPropertyName(m.Member.Name);
+              var a=      p.GetType();
                     sb.Append(entity.TableName).Append(".").Append(entity.GetAttributDbColumn(p));
                 }
 
@@ -426,8 +427,17 @@ namespace Ocph.DAL.ExpressionHandler
             {
                 if (m.Member.ReflectedType.IsValueType == true && m.Member.MemberType == MemberTypes.Property)
                 {
-                    var val = Expression.Lambda(m).Compile().DynamicInvoke();
-                    sb.Append(Helpers.ConverConstant(val));
+                    if(m.Member.GetType().IsEnum)
+                    {
+                        var val = Expression.Lambda(m).Compile().DynamicInvoke();
+                        sb.Append(Helpers.ConverConstant(val));
+                    }
+                    else
+                    {
+                        var val = Expression.Lambda(m).Compile().DynamicInvoke();
+                        sb.Append(Helpers.ConverConstant(val));
+                    }
+
                 }
             }
 

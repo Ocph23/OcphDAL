@@ -16,7 +16,7 @@ namespace Ocph.DAL.Repository
 
         public Repository(IDbConnection dataContex) 
         {
-            DataTables = Helpers.GetDatatable<T>(dataContex);
+            DataTables = DataContext.GetDatatable<T>(dataContex);
 
         }
 

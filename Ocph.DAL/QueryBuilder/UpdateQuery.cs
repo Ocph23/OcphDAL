@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using Ocph.DAL.ExpressionHandler;
+﻿using Ocph.DAL.ExpressionHandler;
 using System.Data;
 using System.Linq.Expressions;
 using System.Text;
@@ -11,10 +10,16 @@ namespace Ocph.DAL.QueryBuilder
         private EntityInfo entityInfo;
       
         private object source;
-        private IDbCommand command = new MySqlCommand();
+        private IDbCommand command;
         public UpdateQuery(EntityInfo entity)
         {
             // TODO: Complete member initialization
+            this.entityInfo = entity;
+        }
+
+        public UpdateQuery(EntityInfo entity, IDbCommand cmd)
+        {
+            command = cmd;
             this.entityInfo = entity;
         }
 

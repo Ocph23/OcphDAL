@@ -1,17 +1,16 @@
-﻿using Ocph.DAL.DbContext;
-using Ocph.DAL.Provider.MySql;
+﻿using MySql.Data.MySqlClient;
+using Ocph.DAL.DbContext;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace Ocph.DAL
+namespace Ocph.DAL.Provider.MySql
 {
-   internal class Helpers
+   public class MySqlProviderHelper : IProvierHelper
     {
-        public static object ConverConstant(object value)
+        public object ConverConstant(object value)
         {
             //var a = value.GetType();
             if (value != null)
@@ -42,7 +41,7 @@ namespace Ocph.DAL
             return value;
         }
 
-        private static object AnotherValue(object value)
+        public object AnotherValue(object value)
         {
             Type t = value.GetType();
             if (t.IsEnum)
@@ -54,7 +53,7 @@ namespace Ocph.DAL
         }
 
 
-        internal static string MySqlErrorHandle(MySql.Data.MySqlClient.MySqlException ex)
+        public string ErrorHandle(MySqlException ex)
         {
             string result = string.Empty;
             switch (ex.Number)
@@ -62,54 +61,18 @@ namespace Ocph.DAL
                 case 1062:
                     result = "Data Duplikat";
                     break;
-                case 1451:
-                    result = "Data Ini Memiliki Relasi Dengan Data Lain";
-                    break;
                 default:
-                  result=  ex.Message;
+                    result = ex.Message;
                     break;
             }
-     
+
             return result;
         }
+        
 
-        internal static object GetParameterValue(PropertyInfo p, object obj)
+        public object CreateParameter(object fieldName, PropertyInfo p, object source)
         {
-            object newObj = obj;
-
-            if (p.PropertyType.IsEnum)
-            {
-                newObj = obj.ToString();
-            }
-
-            if (p.PropertyType.Name == "Boolean")
-            {
-                newObj = obj.ToString();
-            }
-
-            //if (p.PropertyType.Name == "Image" || p.PropertyType.Name == "Bitmap")
-            //{
-            //    Image image = (Image)obj;
-            //    MemoryStream ms = new MemoryStream();
-            //    image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            //    newObj = ms.ToArray();
-            //}
-
-            return newObj;
+          return  new MySqlParameter("@" + fieldName,Helpers. GetParameterValue(p, p.GetValue(source)));
         }
-
-
-        internal static IDataTable<T> GetDatatable<T>(IDbConnection connection) where T : class
-        {
-
-            IDataTable<T> c = null;
-            var ts = connection.GetType();
-            if (ts.BaseType.Name == "MySqlDbConnection")
-            {
-                c = new MySqlDbContext<T>(connection);
-            }
-            return c;
-        }
-
     }
 }

@@ -1,29 +1,30 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Ocph.DAL.Provider.MySql
+namespace Ocph.DAL.Provider.SQLite
 {
-    public class MySqlDbConnection:IDbConnection
+    public class SQLiteDbConnection : IDbConnection
     {
-        private MySqlConnection _Connection = new MySqlConnection();
-        private MySqlCommand _Command;
-        private MySqlTransaction _Transaction;
-        public MySqlDbConnection() { }
-        public MySqlDbConnection(string constr)
+        private SQLiteConnection _Connection;
+        private SQLiteCommand _Command;
+        private SQLiteTransaction _Transaction;
+        public SQLiteDbConnection() { }
+        public SQLiteDbConnection(string constr)
         {
             this.ConnectionString = constr;
+            _Connection = new SQLiteConnection(constr);
         }
 
-        private MySqlCommand Command
+        private SQLiteCommand Command
         {
             get { return _Command; }
             set { _Command = value; }
         }
 
-        private MySqlTransaction Transaction
+        private SQLiteTransaction Transaction
         {
             get { return _Transaction; }
             set { _Transaction = value; }
@@ -80,6 +81,9 @@ namespace Ocph.DAL.Provider.MySql
             }
             set
             {
+                if (_Connection == null)
+                    _Connection = new SQLiteConnection(value);
+                else
                 _Connection.ConnectionString = value;
             }
         }
@@ -92,7 +96,8 @@ namespace Ocph.DAL.Provider.MySql
         public IDbCommand CreateCommand()
         {
             this.Open();
-            _Command = _Connection.CreateCommand();
+            if (_Command == null)
+                _Command = _Connection.CreateCommand();
             return _Command;
         }
 
@@ -108,7 +113,7 @@ namespace Ocph.DAL.Provider.MySql
                 if (this.State != ConnectionState.Open)
                     _Connection.Open();
             }
-            catch (MySqlException Ex)
+            catch (SQLiteException Ex)
             {
                 throw new Exception(Ex.Message);
             }
@@ -124,7 +129,7 @@ namespace Ocph.DAL.Provider.MySql
 
         public IDbDataParameter CreateParameter(string paramaterName, object value)
         {
-            return new MySqlParameter(paramaterName, value);
+            return new SQLiteParameter(paramaterName, value);
         }
 
     }

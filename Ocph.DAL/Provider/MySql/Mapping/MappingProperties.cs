@@ -7,12 +7,12 @@ using System.Linq;
 using System.Reflection;
 using System.Drawing;
 
-namespace Ocph.DAL.Mapping
+namespace Ocph.DAL.Mapping.MySql
 {
     public static class MappingProperties<T>
     {
-      //  private EntityInfo entityParent;
-     //   private List<ColumnInfo> ReaderSchema;
+        //  private EntityInfo entityParent;
+        //   private List<ColumnInfo> ReaderSchema;
 
         //public MappingProperties(EntityInfo entity)
         //{
@@ -23,7 +23,7 @@ namespace Ocph.DAL.Mapping
         public static List<T> MappingTable(IDataReader dr)
         {
             List<T> list = new List<T>();
-            
+
             while (dr.Read())
             {
                 T obj = default(T);
@@ -39,8 +39,8 @@ namespace Ocph.DAL.Mapping
             var ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
             foreach (var property in entity.Properties)
             {
-              //  var columnMapping = entityParent.GetAttributDbColumn(property);
-               if(!property.SetMethod.IsVirtual)
+                //  var columnMapping = entityParent.GetAttributDbColumn(property);
+                if (property.SetMethod!=null && !property.SetMethod.IsVirtual)
                 {
                     var field = ReaderSchema.Where(O => O.ColumnName.ToString().ToUpper() == property.Name.ToString().ToUpper()).FirstOrDefault();
                     if (field != null)
@@ -76,25 +76,26 @@ namespace Ocph.DAL.Mapping
         }
 
 
-       
+
 
         private static object GetValue(PropertyInfo property, object p)
         {
-            object result=new object();
+            object result = new object();
 
             if (property.PropertyType.IsEnum)
             {
-               var ass= Enum.Parse(property.PropertyType, (string)p, true);
+                var ass = Enum.Parse(property.PropertyType, (string)p, true);
 
                 result = Enum.ToObject(property.PropertyType, Convert.ToUInt64(ass));//
-            }else
-                result =  ConverValue(property, p);
+            }
+            else
+                result = ConverValue(property, p);
 
             return result;
         }
 
-       
-        private static void SetListValue<T>(T t, List<T> ListParet)
+
+        private static void SetListValue(T t, List<T> ListParet)
         {
             ListParet.Add(t); ;
         }
@@ -111,8 +112,8 @@ namespace Ocph.DAL.Mapping
 
 
             switch (propertyType.Name)
-            { 
-                case  "Boolean":
+            {
+                case "Boolean":
                     obj = Convert.ToBoolean(obj);
                     break;
 
@@ -134,11 +135,11 @@ namespace Ocph.DAL.Mapping
             {
                 obj = null;
             }
-           
+
             return obj;
         }
 
-      
+
 
     }
 }

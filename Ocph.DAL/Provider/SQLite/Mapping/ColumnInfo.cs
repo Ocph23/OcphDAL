@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ocph.DAL.Mapping
+namespace Ocph.DAL.Mapping.SQLite
 {
     public class ColumnInfo
     {
@@ -32,3 +32,4 @@ namespace Ocph.DAL.Mapping
         public string BaseCatalogName { get; set; }
     }
 }
+       

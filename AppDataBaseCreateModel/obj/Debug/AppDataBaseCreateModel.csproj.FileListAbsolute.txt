@@ -56,3 +56,23 @@ D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCre
 D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CopyComplete
 D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.exe
 D:\Project Tools\OcphDAL\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csprojAssemblyReference.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Form1.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Properties.Resources.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.Setting.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.GenerateResource.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.exe.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.exe
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\AppDataBaseCreateModel.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\Ocph.DAL.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\MySql.Data.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\Ocph.DAL.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\Ocph.DAL.dll.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\MySql.Data.xml
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.xml
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.csproj.CopyComplete
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.exe
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Debug\AppDataBaseCreateModel.pdb

@@ -2,17 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Drawing;
 
-namespace Ocph.DAL.Mapping
+
+namespace Ocph.DAL.Mapping.SQLite
 {
     public class MappingColumn
     {
         private EntityInfo entityParent;
-        private List<ColumnInfo> ReaderSchema;
+        public List<ColumnInfo> ReaderSchema { get; set; }
 
         public MappingColumn(EntityInfo entity)
         {
@@ -20,20 +19,51 @@ namespace Ocph.DAL.Mapping
         }
         public List<T> MappingWithoutInclud<T>(IDataReader dr)
         {
-            ReaderSchema = MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
-
             List<T> list = new List<T>();
-            
             while (dr.Read())
             {
                 T obj = default(T);
                 obj = Activator.CreateInstance<T>();
-                list.Add(WriteColumnMappings<T>(obj, dr));
+                
+                foreach (var property in entityParent.Properties)
+                {
+                    var columnMapping = entityParent.GetAttributDbColumn(property);
+                    if (columnMapping != null)
+                    {
+                        var field = ReaderSchema.Where(O => O.ColumnName.ToString().ToUpper() == columnMapping.ToString().ToUpper()).FirstOrDefault();
+                        if (field != null)
+                        {
+                            var value = dr.GetValue(field.Ordinal);
+                            if (value is DBNull)
+                            {
+
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    property.SetValue(obj, this.GetValue(property, value));
+                                }
+                                catch (Exception ex)
+                                {
+
+                                    throw new SystemException(ex.Message);
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                var res= (T)obj;
+
+                list.Add(res);
             }
             return list;
         }
         public T WriteColumnMappings<T>(object obj, IDataReader dr)
         {
+            ReaderSchema =MappingCommon.ReadColumnInfo(dr.GetSchemaTable());
             foreach (var property in entityParent.Properties)
             {
 

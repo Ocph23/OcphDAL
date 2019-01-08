@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="6.10.6" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Attributes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BaseNotify.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DbContext\DataContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DbContext\IDataTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\CollectPropertyFromExpression.cs" />
@@ -19,12 +20,21 @@
     <Compile Include="$(MSBuildThisFileDirectory)ExpressionHandler\WhereTranslator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extentions\QueryExtention.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\ColumnInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingProperties.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingColumn.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\MappingCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\Mapping\ColumnInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\Mapping\MappingColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\Mapping\MappingCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\Mapping\MappingProperties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbConnection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlDbContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\MySql\MySqlProviderHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\Mapping\ColumnInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\Mapping\MappingColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\Mapping\MappingCommon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\Mapping\MappingProperties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\SQLiteProviderHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\SQLiteDbConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Provider\SQLite\SQLiteDbContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IProvierHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\DeleteQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\InsertQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder\UpdateQuery.cs" />

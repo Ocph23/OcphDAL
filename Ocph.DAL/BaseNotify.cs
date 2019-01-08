@@ -5,8 +5,11 @@ using System.Runtime.CompilerServices;
 
 namespace Ocph.DAL
 {
-    public  class  BaseNotify
+    public  class  BaseNotify: INotifyPropertyChanged
+
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public  bool SetProperty<T>(ref T backingStore, T value,
         [CallerMemberName]string propertyName = "", Action onChanged = null)
         {
@@ -22,9 +25,9 @@ namespace Ocph.DAL
 
         #region INotifyPropertyChanged
 
-        private event PropertyChangedEventHandler PropertyChanged;
+       
 
-        private  void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        public  void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
             if (changed == null)

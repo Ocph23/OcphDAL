@@ -105,15 +105,7 @@ namespace Ocph.DAL.QueryBuilder
             return Query;
         }
 
-        internal void SetParameter(ref System.Data.IDbCommand cmd, object obj)
-        {
-            EntityInfo ent = new EntityInfo(obj.GetType());
-            foreach (PropertyInfo p in ent.DbTableProperty)
-            {
-                cmd.Parameters.Add( new MySqlParameter(string.Format("@{0}", ent.GetAttributDbColumn(p)), Helpers.GetParameterValue(p,p.GetValue(obj))));
-            }
-
-        }
+       
 
         
     }

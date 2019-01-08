@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using Ocph.DAL.Provider.MySql;
+using Ocph.DAL.Provider.SQLite;
 using System;
 using System.Data;
 using System.Linq.Expressions;
@@ -9,9 +11,14 @@ namespace Ocph.DAL.ExpressionHandler
 {
     public class UpdateTranslator : ExpressionVisitor
     {
+        IProvierHelper IHelper;
         public UpdateTranslator(ref IDbCommand command)
         {
             this.command = command;
+            if (command.GetType().Name == "MySqlCommand")
+                IHelper = new MySqlProviderHelper();
+            else
+                IHelper = new SQLiteProviderHelper();
         }
 
 
@@ -47,8 +54,8 @@ namespace Ocph.DAL.ExpressionHandler
             PropertyInfo p = entity.GetPropertyByPropertyName(node.Member.Name);
             var fieldName = entity.GetAttributDbColumn(p);
             sb.Append(fieldName).Append("=").Append("@" + fieldName).Append(", ");
-            command.Parameters.Add(new MySqlParameter("@" + fieldName, Helpers.GetParameterValue(p, p.GetValue(source))));
-
+            var parameter = IHelper.CreateParameter(fieldName, p, source);
+            command.Parameters.Add(parameter);
             return base.VisitMember(node);
         }
     }

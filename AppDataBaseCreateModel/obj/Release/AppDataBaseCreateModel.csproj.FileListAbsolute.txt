@@ -40,3 +40,23 @@ D:\Project Tools\OcphDAL\OcphDALNet\AppDataBaseCreateModel\obj\Release\AppDataBa
 D:\Project Tools\OcphDAL\OcphDALNet\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache
 D:\Project Tools\OcphDAL\OcphDALNet\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.exe
 D:\Project Tools\OcphDAL\OcphDALNet\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.exe.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.exe
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\AppDataBaseCreateModel.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\Ocph.DAL.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\MySql.Data.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\System.Data.SQLite.dll
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\Ocph.DAL.pdb
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\Ocph.DAL.dll.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\MySql.Data.xml
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\System.Data.SQLite.xml
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\bin\Release\System.Data.SQLite.dll.config
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csprojAssemblyReference.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Form1.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Properties.Resources.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.Setting.resources
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.GenerateResource.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.CoreCompileInputs.cache
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.csproj.CopyComplete
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.exe
+C:\Users\ocph2\source\repos\OcphDAL\AppDataBaseCreateModel\obj\Release\AppDataBaseCreateModel.pdb
