@@ -127,5 +127,14 @@ namespace Ocph.DAL.Provider.MySql
             return new MySqlParameter(paramaterName, value);
         }
 
+
+        public void ClearParameter()
+        {
+            if(Command!=null && Command.Parameters!=null)
+            {
+                Command.Parameters.Clear();
+            }
+        }
+
     }
 }

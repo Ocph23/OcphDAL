@@ -98,11 +98,10 @@ namespace Ocph.DAL.Provider.SQLite
             List<T> list = new List<T>();
             StringBuilder sb = new StringBuilder();
 
-            sb.Append("(Select * From ").Append(Entity.TableName).Append(" Where ");
+            sb.Append("Select * From ").Append(Entity.TableName).Append(" Where ");
 
             sb.Append(new WhereTranslator().Translate(expression));
 
-            sb.Append(")");
             IDbCommand cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = sb.ToString();
@@ -112,8 +111,12 @@ namespace Ocph.DAL.Provider.SQLite
                 dr = cmd.ExecuteReader();
                 if(dr!=null)
                 {
-                    var map = new MappingColumn(Entity);
-                    list = map.MappingWithoutInclud<T>(dr);
+
+                    var mapping = new MappingColumn(Entity);
+                    mapping.ReaderSchema = this.ReadColumnInfo(dr.GetSchemaTable());
+                    list = mapping.MappingWithoutInclud<T>(dr);
+
+
                 }
                 else
                 {
